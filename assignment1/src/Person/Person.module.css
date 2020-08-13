@@ -1,0 +1,18 @@
+.Person {
+  width: 60%;
+  margin: 16px auto;
+  background-color: lavender;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+}
+.Person:hover{
+  background-color: rgb(194, 191, 243);
+}
+
+@media (min-width: 500px) {
+  .Person {
+    width: 450px;
+  }
+}
