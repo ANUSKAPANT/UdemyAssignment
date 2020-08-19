@@ -1,1 +1,1 @@
-Add actions DECREMENT, ADD, SUBTRACT 
+Use of Redux
