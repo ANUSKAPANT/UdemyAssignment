@@ -1,23 +1,17 @@
-import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import CounterControl from './CounterControl';
-import { fireEvent } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom/extend-expect';
 
-describe('<CounterOutput />', () => {
+describe('<CounterControl />', () => {
 
-    it('should display the label', () => {
-        
-        const { container } = render(<CounterControl label={ 'Increment' } />);
-        const element = container.querySelector('.CounterControl');
-        expect(element.textContent).toBe('Increment');
-
-    });
-
-    it('should mock onClick', () => {
+    it('should display the label and mock onClick', () => {
         const clicked = jest.fn();
-        const { container } = render(<CounterControl clicked={clicked} />);
-        
-        const element = container.querySelector('.CounterControl');
+        const { getByText } = render(<CounterControl clicked={clicked} label={ 'Increment' } />);
+        const element = getByText(/Increment/i);
+        expect(element).toBeInTheDocument();
+
         fireEvent.click(element);
         expect(clicked).toHaveBeenCalled();
 

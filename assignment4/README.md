@@ -1,1 +1,3 @@
-Add actions DECREMENT, ADD, SUBTRACT 
+# Assignment Description : 
+
+- Add actions DECREMENT, ADD, SUBTRACT 

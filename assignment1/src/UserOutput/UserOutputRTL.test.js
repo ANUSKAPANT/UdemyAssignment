@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import UserOutput from './UserOutput';
 
@@ -13,7 +13,6 @@ describe('<UserOutput />', () => {
 
     // Assert
     expect(element).toBeInTheDocument();
-    expect(element.tagName).toEqual('P');
     // expect(asFragment()).toMatchSnapshot();
   });
 });

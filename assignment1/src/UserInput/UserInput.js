@@ -10,7 +10,7 @@ const userInput = (props) => {
 
     return (
         <div style={inputStyle}>
-            <input data-testid="input" type="text" onChange={props.change} value={props.userName} />
+            <input aria-label="Enter" type="text" onChange={props.change} value={props.userName} />
         </div>
         
     );

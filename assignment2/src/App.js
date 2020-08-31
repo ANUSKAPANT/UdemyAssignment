@@ -32,7 +32,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input type="text" onChange={this.handleChange} value={this.state.char} placeholder="Enter"/>
+        <input  aria-label="Enter" type="text" onChange={this.handleChange} value={this.state.char} placeholder="Enter"/>
         <p>Count : {this.state.char.length}</p>
 
         <Validation length={this.state.char.length}/>

@@ -6,10 +6,6 @@ import Error from './components/Error';
 import './App.css';
 
 
-const LocationDisplay = withRouter(({ location }) => (
-  <div data-testid="location-display">{location.pathname}</div>
-))
-
 function App() {
 
     return (
