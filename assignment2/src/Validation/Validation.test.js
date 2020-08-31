@@ -1,17 +1,20 @@
-import React from 'react';
-import { configure, shallow, mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import Validation from './Validation';
 
-
-configure({ adapter: new Adapter() });
-
 describe('<Validation />', () => {
-    
-    it('testing props', () => {
-        const wrapper = shallow(<Validation length={4} />);
-        expect(wrapper.find('p').text()).toEqual('Text too short!');
-           
-    });  
+
+  it('should display text according to length prop', () => {
+    render(<Validation length={'4'} />);
+    const element = screen.getByText('Text too short!');
+    expect(element).toBeInTheDocument();
+  });
+
+  it('should display text according to length prop', () => {
+    render(<Validation length={'9'} />);
+    const element = screen.getByText('Text long enough!');
+    expect(element).toBeInTheDocument();
+  });
 
 });

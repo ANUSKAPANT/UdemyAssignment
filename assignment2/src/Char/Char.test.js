@@ -1,34 +1,22 @@
-import React from 'react';
-import { configure, shallow, mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Char from './Char';
 
-
-configure({ adapter: new Adapter() });
-
 describe('<Char />', () => {
-    let wrapper;
-    let deleted;
 
-    beforeEach(() => {
-        deleted = jest.fn();
-        const props = {
-            char: "A",
-            deleted,
-        }
-        wrapper = shallow(<Char {...props}/>);
+  it('should display the passed prop', () => {
+    render(<Char char={'hello'} />);
+    const element = screen.getByText('hello');
+    expect(element).toBeInTheDocument();
+    expect(element.tagName).toEqual('P');
+   
+  });
 
-    });
-
-    it('testing props', () => {
-        expect(wrapper.find('p').text()).toEqual('A');
-           
-    });  
-    
-    it('testing onClick event', () => {
-        wrapper.find('div').simulate('click'); 
-        expect(deleted).toHaveBeenCalled();
-
-    });
+  it(' onClick event fired', () => {
+    const handleClickMock = jest.fn()
+    const { container, debug } = render(<Char deleted={handleClickMock} />);
+    fireEvent.click(container.firstChild);
+    expect(handleClickMock).toHaveBeenCalledTimes(1); 
+  });
 
 });
