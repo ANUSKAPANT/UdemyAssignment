@@ -3,5 +3,10 @@
     padding: 16px;
     text-align: center;
     margin: 16px;
-    border: 1px solid;
+    border: 2px solid;
+    color: indigo;
+}
+
+.box:hover {
+    border: 2px solid red;
 }

@@ -27,9 +27,9 @@ class Course extends Component {
 
     render () {
         return (
-            <div>
+            <div data-testid = 'course'>
                 <h1>{this.state.courseTitle}</h1>
-                <p>The course id is <strong>{this.props.match.params.id}</strong></p>    
+                <p> The course id is <strong>{this.props.match.params.id}</strong></p>    
             </div>
                 
         )

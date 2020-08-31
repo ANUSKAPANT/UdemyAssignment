@@ -10,7 +10,7 @@ const userInput = (props) => {
 
     return (
         <div style={inputStyle}>
-            <input type="text" onChange={props.change} value={props.userName} />
+            <input data-testid="input" type="text" onChange={props.change} value={props.userName} />
         </div>
         
     );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import './App.css'
 import Validation from './Validation/Validation';
 import Char from './Char/Char';
+
 
 class App extends Component {
   state = {
@@ -24,14 +26,14 @@ class App extends Component {
   render() {
     const charList = this.state.char.split('').map((ch, index) => {
       return(
-      <Char char={ch} key={index} delete={() => this.deleteChar(index)} />
+      <Char char={ch} key={index} deleted={() => this.deleteChar(index)} />
       ); 
     });
 
     return (
-      <div>
-        <input type="text" onChange={this.handleChange} value={this.state.char}/>
-        <p>{this.state.char.length}</p>
+      <div className="App">
+        <input type="text" onChange={this.handleChange} value={this.state.char} placeholder="Enter"/>
+        <p>Count : {this.state.char.length}</p>
 
         <Validation length={this.state.char.length}/>
         

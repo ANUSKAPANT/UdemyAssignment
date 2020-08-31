@@ -1,3 +1,7 @@
+I have applied two testing libraries Enzyme and RTL.
+
+Assignment Description : 
+
 Create TWO new components: UserInput and UserOutput
 
 UserInput should hold an input element, UserOutput two paragraphs

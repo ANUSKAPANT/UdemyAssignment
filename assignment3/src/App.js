@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import {Route, BrowserRouter, NavLink, Switch, Redirect} from 'react-router-dom';
+import {Route, BrowserRouter, NavLink, Switch, Redirect, withRouter} from 'react-router-dom';
 import Users from './containers/Users/Users';
 import Courses from './containers/Courses/Courses';
 import Error from './components/Error';
 import './App.css';
 
-class App extends Component {
-  render() {
+
+const LocationDisplay = withRouter(({ location }) => (
+  <div data-testid="location-display">{location.pathname}</div>
+))
+
+function App() {
+
     return (
       <BrowserRouter>
       <div className='App'>
-        <nav>
+        <nav data-testid = "nav">
           <ul>
             <li><NavLink to='/courses'>Courses</NavLink></li>
             <li><NavLink to='/users'>Users</NavLink></li> 
@@ -31,6 +36,7 @@ class App extends Component {
       </BrowserRouter>
     )
   }
-}
 
-export default App;
+
+
+  export default  App ;
