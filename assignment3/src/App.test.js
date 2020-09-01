@@ -23,8 +23,7 @@ describe('<App />', () => {
     
     it('should render the error page', () => {
         const { getByText } = renderWithRouter(<App />);
-
-        expect(history.location.pathname).toBe('/');
+    
         const result = getByText('Page not found!');
         expect(result).toBeInTheDocument();   
     });
@@ -49,7 +48,7 @@ describe('<App />', () => {
         const link1 = getByText('ReactJs : Beginners Course');
         userEvent.click(link1);
         result = getByTestId('course')
-        expect(result.textContent).toBe('ReactJs : Beginners Course The course id is 1');  
+        expect(result).toHaveTextContent('ReactJs : Beginners Course The course id is 1');  
            
     });    
 

@@ -5,6 +5,7 @@ import { render, cleanup, fireEvent } from '@testing-library/react';
 import useEvent from '@testing-library/react';
 import { initialState, reducer } from '../../store/reducer'
 import Counter from './Counter'
+import '@testing-library/jest-dom/extend-expect';
 
 describe('<Counter />', () => {
 
@@ -23,7 +24,7 @@ describe('<Counter />', () => {
     it('checks initial state is equal to 0', () => {
         const { getByText, container } = renderWithRedux(<Counter />);
         const counterOutput = container.querySelector('.CounterOutput');
-        expect(counterOutput.textContent).toBe('Current Counter: 0');
+        expect(counterOutput).toHaveTextContent('Current Counter: 0');
     });
       
     it('increments the counter through redux', () => {
@@ -31,7 +32,7 @@ describe('<Counter />', () => {
         const counterOutput = container.querySelector('.CounterOutput');
         const counterControl = getByText('Increment');
         fireEvent.click(counterControl);
-        expect(counterOutput.textContent).toBe('Current Counter: 1');
+        expect(counterOutput).toHaveTextContent('Current Counter: 1');
     
     });
     
@@ -41,7 +42,7 @@ describe('<Counter />', () => {
     
         const counterControl = getByText('Decrement');
         fireEvent.click(counterControl);
-        expect(counterOutput.textContent).toBe('Current Counter: -1');
+        expect(counterOutput).toHaveTextContent('Current Counter: -1');
         
     });
     
@@ -50,7 +51,7 @@ describe('<Counter />', () => {
         const counterOutput = container.querySelector('.CounterOutput');
         const counterControl = getByText('Add 5');
         fireEvent.click(counterControl);
-        expect(counterOutput.textContent).toBe('Current Counter: 5');
+        expect(counterOutput).toHaveTextContent('Current Counter: 5');
         
     });
     
@@ -61,7 +62,7 @@ describe('<Counter />', () => {
     
         const counterControl = getByText('Subtract 5');
         fireEvent.click(counterControl);
-        expect(counterOutput.textContent).toBe('Current Counter: -5');
+        expect(counterOutput).toHaveTextContent('Current Counter: -5');
     
     });
       

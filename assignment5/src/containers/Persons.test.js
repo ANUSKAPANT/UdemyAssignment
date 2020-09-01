@@ -35,7 +35,7 @@ describe('<Persons />', () => {
                 {name: 'Max', age: 20}
             ]}});
         const Person = getByTestId('Person');
-        expect(Person.textContent).toBe('Max Age: 20');
+        expect(Person).toHaveTextContent('Max Age: 20');
    
     });
     

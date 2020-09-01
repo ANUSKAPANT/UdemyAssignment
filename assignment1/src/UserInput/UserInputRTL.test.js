@@ -3,13 +3,13 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import UserInput from './UserInput';
 
-describe('<UserInput />', () => {
 
-  function setup() {
-    const app = render(<UserInput />); 
-    return { app, ...app };
-  }
-  
+function setup() {
+  const app = render(<UserInput />); 
+  return { app, ...app };
+};
+
+describe('<UserInput />', () => {
   it('should display input element with  userName value Max', () => {
     const { getByLabelText } = setup();
     const input = getByLabelText("Enter");

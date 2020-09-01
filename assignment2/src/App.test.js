@@ -13,7 +13,7 @@ describe('<App />', () => {
 
     userEvent.type(input, 'Text');
     expect(input.value).toEqual('Text');
-    expect(p.textContent).toEqual('Count : 4');
+    expect(p).toHaveTextContent('Count : 4');
 
   });
 
